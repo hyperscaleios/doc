@@ -1,0 +1,54 @@
+CREATE OR REPLACE PROCEDURE insert_customer(
+        custType INTEGER, 
+        custName TEXT
+
+
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+        INSERT INTO customer(cust_type, cust_name)
+        VALUES (custType, custName);
+        COMMIT;
+END;
+$$;
+
+--calling insert_customer to insert cust_type of 4 and customer name is 'Hyperscale IO'
+call insert_customer(4, 'Hyperscale IO')
+
+--ecom=# select * from customer;
+-- cust_id | cust_type |   cust_name   |         cust_date          | is_deleted 
+-----------+-----------+---------------+----------------------------+------------
+--     101 |         1 | retail        | 2026-04-23 16:09:11.756814 | 
+--     102 |         2 | wholesale     | 2026-04-23 16:09:39.823262 | 
+--     103 |         4 | internal      | 2026-04-23 16:09:57.183349 | 
+--     104 |         4 | Hyperscale IO | 2026-04-23 18:04:47.098394 | 
+
+CREATE OR REPLACE PROCEDURE insert_contact(
+        fname TEXT,
+        lname TEXT,
+        phone TEXT,
+        email TEXT,
+        contactDate DATE
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+
+        INSERT INTO contact(fname, lname, phone, email,contact_date)
+        VALUES (fname, lname, phone, email, contactDate);
+        COMMIT;
+END;
+$$;
+
+-- manual insert 
+insert into contact(fname,lname,phone,email) values('brady','chang','777-234-3987','bradycychang@gmail.com');
+
+--calling insert_contact  
+call insert_contact('casper','chang','888-999-8888','casperchang@gmail.com');
+
+select * from contact
+----------------------------------------------------------------------------------------------------
+101	"brady"	"chang"	"777-234-3987"	"bradycychang@gmail.com"	"2026-04-23 18:41:35.223668"
+102	"casper"	"chang"	"888-999-8888"	"casperchang@gmail.com"	"2026-04-23 18:42:22.578325"`
+
