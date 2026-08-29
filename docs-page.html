@@ -108,6 +108,7 @@
 		<li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Git</a></li>
 		<li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Functions and Stored Procedures</a></li>
 		<li class="nav-item"><a class="nav-link scrollto" href="#item-5-3">Flask PostgresQL</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-5-4">Client tools </a></li>
 		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-6"><span class="theme-icon-holder me-2">
 
                 <i class="fas fa-laptop-code"></i></span>Automation</a></li>
@@ -133,7 +134,7 @@
                     <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-2">Networking</a></li>
                     <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-3">Pgadmin</a></li>
                     <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-4">Clustering</a></li>
-                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-5">PosgreSQL 16 and 18</a></li>
+		    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-5">PosgreSQL 18</a></li>
 		  </ul>
 
                 <li class="nav-item"><a class="nav-link scrollto" href="#item-8-4">ecom  </a>				    
@@ -504,6 +505,22 @@
 					  app.run(debug=True) <br>
 			https://www.geeksforgeeks.org/python/making-a-flask-app-using-a-postgresql-database/
 			</p>
+					</section><!--//section-->
+					<section class="docs-section" id="item-5-4">
+						<h2 class="section-heading">Antares </h2>
+						<p>
+						<b>Add PPA source</b><br>
+						root@hsiom:~# curl https://antares-sql.github.io/antares-ppa/key.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/antares.gpg <br>
+						root@hsiom:~# curl -s --compressed -o /etc/apt/sources.list.d/antares.list https://antares-sql.github.io/antares-ppa/list_file.list<br><br>
+						<b>Install Antares </b><br>
+					        root@hsiom:~# sudo apt update<br>
+						root@hsiom:~# sudo apt install antares<br>
+						<b>add the following to /root/.bashrc  </b><br>
+						export PATH="$PATH:/root/.local/bin"<br>
+						export DISPLAY=:0<br>
+						<b>fire up antares</b><br>
+						root@hsiom:~# antares --no-sandbox
+						</p>
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 			    
@@ -885,7 +902,7 @@
 						<p> 
 						<!--  div class="boxed" -->
                                                     <div >
-					            <h4> postgreSQL 16 </h4> 
+				            <s>	    <h4> postgreSQL 16 </h4> 
 					            root@hsiom:~# apt install -y postgresql-common ca-certificates<br>
 						    root@hsiom:~# /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh<br>
 						    root@hsiom:~# apt install postgresql-16<br>
@@ -906,23 +923,44 @@
 						    psql (16.14 (Debian 16.14-1.pgdg13+1))<br>
 						    Type "help" for help.<br>
 						    <br>
-                                                    
+					    </s>      
 						    <h4>Postgresql 18</h4>
 						    apt install -y curl ca-certificates<br>
-						    sudo apt install -y postgresql-common<br>
-						   sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh<br>
+						    apt install -y postgresql-common<br>
+						    root@hsiom:~# curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc<br><br>
+						    <b>Create pgdg.sources repo </b><br>
+						    root@hsiom:/etc/apt/sources.list.d# <b>ls</b><br>
+						    cros.list  dbeaver.list  pgdg.sources<br>
+						    root@hsiom:/etc/apt/sources.list.d# <b>cat &nbsp; &nbsp; pgdg.sources</b><br>
+						    Types: deb deb-src<br>
+						    URIs: https://apt.postgresql.org/pub/repos/apt<br>
+						    Suites: trixie-pgdg<br>
+						    Architectures: amd64<br>
+						    Components: main<br>
+						    Signed-By: /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc<br>
+						    root@hsiom:~# apt update<br>
+						    <b> install PostgreSQL 18 </b><br>
 						    apt install -y postgresql-18<br>
-						    <b>psql -p 9700 -c "CREATE EXTENSION citus;"</b><br>
-						    To verify that the installation has succeeded, and Citus is installed:<br>
-                                                    <br>
-						    psql -p 9700 -c "select citus_version();"<br>
-						    You should see details of the Citus extension.<br>
-						    At this step, you have completed the installation process and are ready <br>
-						    to use your Citus cluster. To help you get started, we have a tutorial <br>
-					 which has instructions on setting up a Citus cluster with sample data in minutes.<br>
-					 https://docs.citusdata.com/en/stable/get_started/tutorial_multi_tenant.html#multi-tenant-tutorial`<br>
-						    mkdir citus<br>
 						    <br>
+						    <h4>Postgresql 18 and Citus</h4>
+						    <p>
+						    To install Citus with PostgreSQL 18 on  Debian, add the community repository and install the <br>
+						    specific package postgresql-18-citus-14.1.<br>
+						    <b>Installation Steps on Ubuntu / Debian</b><br>
+						    Add the Citus repository:<br>
+						    curl https://install.citusdata.com/community/deb.sh | sudo bash <br>
+						    Install PostgreSQL 18 and the Citus 14 extension:<br>
+						    sudo apt-get -y install postgresql-18-citus-14.1<br>
+						    Preload the extension: <br>
+						    sudo pg_conftool 18 main set shared_preload_libraries citus<br>
+						    Restart PostgreSQL:<br>
+						    sudo service postgresql restart <br>
+						    Enable the extension in your database:<br>
+						    sudo -i -u postgres psql -c "CREATE EXTENSION citus;"<br>
+						    You can find more package details and options directly on the <a herf="https://www.citusdata.com/download/" target="_blank">Citus 
+							    Download Page.</a>
+					            https://docs.citusdata.com/en/stable/get_started/tutorial_multi_tenant.html#multi-tenant-tutorial`<br>
+						    </p>
 
 						  <i><b>#ecom data definition  </b></i><br>
 						  <a href="assets/docs/ecom_from_prod.sql" target="_blank">ecom schema</a><br>
@@ -931,7 +969,7 @@
 						  <i><b>#create users </b></i><br>
 					             sudo su - postgres <br>
 						     hsio@hsiom:~$ psql ecom<br>
-						     psql (16.14 (Debian 16.14-1.pgdg13+1))<br>
+						     psql (18.6 (Debian 18.6-1.pgdg13+2))<br>
 						     Type "help" for help. <br> <br>
 						     postgres=# create user hsio with password 'changeme';<br>
 						     postgres=# GRANT ALL PRIVILEGES ON DATABASE ecom TO hsio;<br>
@@ -955,9 +993,9 @@
 						     postgres=# alter user hyperscaleios with superuser; <br>
 						     ALTER ROLE <br>
 						<i> Test user hyperscaleios...</i><br>
-						 hyperscaleios@penguin$ psql -U hyperscaleios ecom <br><br>
+						 root@hsiom$ psql -h 127.0,0.1 -U hyperscaleios -w ecom <br><br>
 						 Password for user hyperscaleios: <br>
-						 psql (<b>16.14 (Debian 16.14-1.pgdg13+1))</b><br>
+						 psql (<b>psql (18.6 (Debian 18.6-1.pgdg13+2))</b><br>
 						 Type "help" for help.<br>
 						   ecom=# \du<br>
 						   List of roles<br>
@@ -969,14 +1007,14 @@
 						 ecom=#<br>
 						</p>
 						<i><b>test user hsio login</b></i><br>
-						 root@penguin:~# psql -U hsio ecom<br>
+						 root@hsiom:~# psql -h 127.0.0.1 -U hsio -w ecom<br>
 						 Password for user hsio:&emsp;&emsp;#it's <b>changeme</b><br>
 						 psql (<b>(18.6 (Debian 18.6-1.pgdg13+2))</b><br>
 						 Type "help" for help.<br>
 						 ecom-# \q<br>
-						 root@penguin:~#<br>
+						 root@hsiom:~#<br>
 						<i><b>test user hyperscaleios login</b></i><br>
-						 root@penguin:~# psql -U hyperscaleios ecom<br>
+						 root@hsiom:~# psql -h 127.0,0,1 -U hyperscaleios -w ecom<br>
 						 Password for user hyperscaleios:<br>
 						 psql (<b> (18.6 (Debian 18.6-1.pgdg13+2))</b><br>
 						 Type "help" for help.<br>
@@ -1098,16 +1136,16 @@
 						</p>
 				     </section><!--//section-->
 				     <section class="docs-section" id="item-8-3-5">
-						<h2 id="kb1" class="section-heading">PostgreSQL 16 and 18 running</h2>
+						<h2 id="kb1" class="section-heading">PostgreSQL 18</h2>
 						<p>
-						hsiom(hypescale io master) have PostgreSQL 16 and PostgreSQL 18 Citus running<br> 
-						<b>PSQL 16 </b> <br>
+						hsiom(hypescale io master) have  PostgreSQL 18 running<br> 
+						<s>	<b>PSQL 16 </b> <br>
 						start with systemctl<br>
 						pg_hba.conf is in /etc/postgresql/16/main/pg_hba.conf<br>
 						hsio@hsiom:~$ /usr/lib/postgresql/16/bin/psql ecom<br>
 						psql (16.14 (Debian 16.14-1.pgdg13+1))<br>
 						Type "help" for help.<br>
-						ecom=# \q<br>
+						ecom=# \q<br> </s>
 						<b>PSQL 18 </b> <br>
 						hsio@hsiom:~$ /usr/lib/postgresql/18/bin/psql ecom<br>
 						psql (18.4 (Debian 18.4-1.pgdg13+1), server 16.14 (Debian 16.14-1.pgdg13+1))<br>
@@ -1142,6 +1180,9 @@
 						&emsp;VALUES (custType, custName);<br>
 						END;<br>
 						$$<br>
+						<b>Execution</b><br>
+						<i>--insert customer name = Hyperscale IO with cust_type of 4</i><br>
+						CALL public.insert_customer(4, 'Hyperscale IO') <br>
 						<br>
 						CREATE or REPLACE <b>FUNCTION delete_customer</b>"(<br>
 						&emsp; p_custId INT<br>
@@ -1152,7 +1193,8 @@
 						<b>END;</b><br>
 						$$ <b>LANGUAGE</b> plpgsql;<br><br>
 						CREATE OR REPLACE <b>PROCEDURE insert_contact</b>(<br>
-						IN p_cust_id INT, IN p_fname TEXT, IN p_lname TEXT, IN p_phone TEXT, IN p_email TEXT) LANGUAGE plpgsql<br>
+						IN p_cust_id INT, IN p_fname TEXT, IN p_lname TEXT, IN p_phone TEXT, IN p_email TEXT, IN custId INTEGER)<br> 
+						LANGUAGE plpgsql<br>
 						AS<br>
 						$$<br>
 						<br>
@@ -1163,7 +1205,7 @@
 						END;<br>
 						$$<br>
 						<br>
-						CALL "public"."insert_contact"('Brady','Chang','660-347-4603','bradycychang@gmail.com');<br>
+						CALL "public"."insert_contact"('Brady','Chang','512-528-3829','bradycychang@gmail.com',104);<br>
 						<br>
 						CREATE <b>PROCEDURE delete_contact</b>"(IN contactid INTEGER) LANGUAGE plpgsql<br>
 						AS<br>
@@ -1173,15 +1215,64 @@
 						&emsp;COMMIT;<br>
 						END;<br>
 						$$<br><br>
-						CREATE <b>PROCEDURE insert_product</b>(IN productname VARCHAR, IN productdesc VARCHAR, IN productprice NUMERIC, IN productmsg VARCHAR) LANGUAGE plpgsql<br>
-						AS<br>
-						$$<br>
+						CREATE OR REPLACE PROCEDURE public.<b>update_contact</b>(<br>
+						IN contactid integer,<br>
+						IN firstname text,<br>
+						IN lastname text,<br>
+						IN phonenumber text,<br>
+						IN jobtitle text)<br>
+						LANGUAGE 'plpgsql'<br>
+						AS $BODY$<br>
 						BEGIN<br>
-						&emsp;INSERT INTO product( product_name,product_desc<br>, product_price, product_msg)
-						&emsp;VALUES (productName, productDesc, productPrice, productMsg);<br>
-						&emsp;COMMIT;<br>
+					        &emsp;update contact set (fname, lname, phone, title) =<br>
+						&emsp;(firstName,lastName, phoneNumber,jobTitle) <br>
+						&emsp;where contact_id = contactId;<br>
 						END;<br>
-						$$<br>
+						&emsp;$BODY$;<br><br>
+						ALTER PROCEDURE public.update_contact(integer, text, text, text, text)<br>
+						OWNER TO hsio;<br><br>
+						<b>Execution</b><br>
+						CALL public.update_contact(102, 'Brady','Chang','512-528-3829', 'Platform Engineer'
+						);<br><br>
+						select * from contact where contact_id = 102;
+						<table>
+						<tr>
+							<th>contact_id</th>	
+							<th>fname</th>	
+							<th>lname</th>	
+							<th>phone</th>	
+							<th>email</th>	
+							<th>ontact_date</th>	
+							<th>cust_id</th>	
+							<th>is_deleted</th>	
+							<th>title</th>	
+                                                  </tr>
+						  <tr>
+							 <td>102</td>	
+							 <td>Brady</td>
+							 <td>Chang</td>	
+							 <td>512-528-3829</td>
+							 <td>bradycychang@gmail.com</td>
+							 <td>2026-08-28 22:20:50.872822</td>	
+							 <td>104</td>	
+							 <td>false</td>	
+							 <td>Platform Engineer</td>
+						  </tr>
+						</table><br>
+
+						CREATE OR REPLACE PROCEDURE public.<b>insert_product</b>(<br>
+						&emsp;IN productName text,<br>
+						&emsp;IN productDesc text,<br>
+						&emsp;IN productPrice numeric,<br>
+						&emsp;IN productMessage text)<br>
+						LANGUAGE 'plpgsql'<br>
+						AS $BODY$<br>
+						BEGIN<br>
+						&emsp;INSERT INTO product(product_name, proudct_desc, product_price,<br>
+						&emsp;product_msg)<br>
+						&emsp;VALUES (produtName, productDesc, productPrice, productMessage);<br>
+						&emsp;COMMIT;<br>
+						END;<br><br>
 						CREATE PROCEDURE "public"."<b>delete_product</b>"(IN productid INTEGER) <br>
 						LANGUAGE plpgsql<br>
 						AS<br>
@@ -1215,7 +1306,8 @@
 						<br>
 						<b>Execution</b><br>
 						&emsp;select * from <b>get_customer_by_name</b>('<b>hyperscale</b>') as (cust_id int,  custype2 text,<br>
-						&emsp;cust_name varchar(40),cust_date timestamp,fname varchar(20), lname varchar(20) , phone varchar(20), email varchar(40), deleted boolean)<br>
+						&emsp;cust_name varchar(40),cust_date timestamp,fname varchar(20), lname varchar(20) , phone varchar(20), <br>
+						&emsp;email varchar(30), is_deleted boolean)<br>
 						<b>Result</b><br>
 						&emsp;101 &emsp;internal &emsp;Hyperscale IO&emsp;2026-06-20 22:00:22.113694&emsp;Casper&nbsp;Chang&emsp;512-788-3188<br>&emsp;casperchang@zohomail.com &emsp;false<br>
 						&emsp;101 &emsp;internal &emsp;Hyperscale IO &emsp;	2026-06-20 22:00:22.113694 &emsp;Brady &nbsp;Chang &emsp;512-881-1089 <br>&emsp;bradychang@zohomail.com &emsp;fuck<br>
@@ -1408,6 +1500,4 @@
     <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
     <script src="assets/js/docs.js"></script> 
  </body>
-</html>
-</body>
 </html> 
