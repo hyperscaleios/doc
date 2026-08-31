@@ -15,6 +15,23 @@
   <!-- FontAwesome JS-->
     <script defer src="assets/fontawesome/js/all.min.js"></script>
 
+<!DOCTYPE html><html lang="en"> 
+<head>      
+  <title>HDA Documentation </title>    
+  <!-- Meta -->      
+  <meta charset="utf-8">      
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">      
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+  <meta name="description" content="HDA Documentation User's Guide">      
+  <meta name="author" content="Brady Chang at Hyperscale IO">          
+  <link rel="shortcut icon" href="favicon.ico">     
+
+  <!-- Google Font -->    
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">    
+
+  <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+
   <!-- Plugins CSS -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
     <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
@@ -1535,7 +1552,7 @@
 
     <!-- Page Specific JS -->
     <script src="assets/plugins/smoothscroll.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>				
     <script src="assets/js/highlight-custom.js"></script> 
     <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
     <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
