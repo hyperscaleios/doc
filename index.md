@@ -1,0 +1,1546 @@
+<!DOCTYPE html><html lang="en"> 
+<head>      
+  <title>HDA Documentation </title>    
+  <!-- Meta -->      
+  <meta charset="utf-8">      
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">      
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+  <meta name="description" content="HDA Documentation User's Guide">      
+  <meta name="author" content="Brady Chang at Hyperscale IO">          
+  <link rel="shortcut icon" href="favicon.ico">     
+
+  <!-- Google Font -->    
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">    
+
+  <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+
+  <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/hsio.css">
+
+  <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+</head> 
+
+<body class="docs-page">    
+    <header class="header fixed-top">	    
+        <div class="branding docs-branding">
+            <div class="container-fluid position-relative py-2">
+                <div class="docs-logo-wrapper">
+					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button">
+	                    <span></span>
+	                    <span></span>
+	                    <span></span>
+	                </button>
+	                <div class="site-logo"><a class="navbar-brand" href="index.html">
+                           <img class="logo-icon me-2" src="assets/images/hsio_logo.png" width="30" height="30" alt="logo">
+                           <span class="logo-text">Hyperscale<span class="text-alt">IO</span></span>
+                           </a>
+                        </div>                 </div><!--//docs-logo-wrapper-->
+	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+	                <div class="top-search-box d-none d-lg-flex">
+				<!-- 
+		                <form class="search-form">
+				            <input type="text" placeholder="Search the docs..." 
+                                            name="search" class="form-control search-input">
+				            <button type="submit" class="btn search-btn" value="Search">
+                                              <i class="fas fa-search"></i>
+                                            </button>
+				        </form>
+			        -->
+	                </div>
+    
+			<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
+<!--
+			  <li class="list-inline-item"><a href="#"><i class="fa-brands fa-github fa-fw"></i></a></li>			            
+                          <li class="list-inline-item"><a href="#"><i class="fa-brands fa-x-twitter fa-fw"></i></a></li>		                
+                          <li class="list-inline-item"><a href="#"><i class="fa-brands fa-slack fa-fw"></i></a></li>		               
+                          <li class="list-inline-item"><a href="#"><i class="fa-brands fa-product-hunt fa-fw"></i></a></li>		            
+-->
+                        </ul><!--//social-list-->		            
+                        <a href="https://hsio.com/" class="btn btn-primary d-none d-lg-flex">
+                            H S I O 
+                        </a>	            
+                  </div><!--//docs-top-utilities-->            
+               </div><!--//container-fluid-->        
+          </div><!--//branding-->    
+        </header><!--//header-->            
+        <div class="docs-wrapper">	    
+          <div id="docs-sidebar" class="docs-sidebar">		    
+             <div class="top-search-box d-lg-none p-3">                
+                <form class="search-form">		            
+                   <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">		            
+                   <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>		        
+                </form>            
+             </div>		    
+             <nav id="docs-nav" class="docs-nav navbar">			   
+                <ul class="section-items list-unstyled nav flex-column pb-3">				    
+                <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Introduction</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">HDA Cluster</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Master node </a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Secondary Master</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">Worker nodes </a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-1-5">Interconnect </a></li>
+		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-2"><span class="theme-icon-holder me-2">
+
+                <i class="fas fa-arrow-down"></i></span>Setup</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Power</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Network </a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Starting up</a></li>
+		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"> <span class="theme-icon-holder me-2">
+
+                <i class="fas fa-cogs"></i></span>HDA Portal</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Section Item 3.1</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Section Item 3.2</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Section Item 3.3</a></li>
+		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder me-2">
+
+                <i class="fas fa-cogs"></i></span>API</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Section Item 4.1</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Section Item 4.2</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Section Item 4.3</a></li>
+		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-5"><span class="theme-icon-holder me-2">
+
+                <i class="fas fa-tools"></i></span>Development</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Git</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Functions and Stored Procedures</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-5-3">Flask PostgresQL</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-5-4">Client tools </a></li>
+		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-6"><span class="theme-icon-holder me-2">
+
+                <i class="fas fa-laptop-code"></i></span>Automation</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">Ansible</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-6-2">A I </a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-6-3">Machine Learning</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-6-4">Python AI </a></li>
+		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-8"><span class="theme-icon-holder me-2">                                        
+                   <i class="fas fa-book-reader"></i></span>Resources</a>
+                </li>				    
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1">Flask </a></li>				    
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2">HDA Debian </a></li>
+		<ul>
+                  <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2-1">inode</a></li>
+                  <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2-2">swap</a></li>
+                  <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2-3">Virtual Machine</a></li>
+                  <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2-4">fornodes</a></li>
+                  <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2-5">forcp</a></li>
+		</ul>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3">Postgresql </a></li>				    
+		  <ul>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-1">Install</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-2">Networking</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-3">Pgadmin</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-4">Clustering</a></li>
+		    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-5">PosgreSQL 18</a></li>
+		  </ul>
+
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-8-4">ecom  </a>				    
+		  <ul>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-4-1">Entity Relationship Diagram  </a></li>				    
+                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-4-2">Functions and SP</a></li>				    
+                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-4-3">DAO  </a></li>				    
+		  </ul>
+		</li>
+                <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-9"><span class="theme-icon-holder me-2"><i class="fas fa-book-reader"></i></span>FAQ</a></li>				    
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-9-1">URL's</a></li>				    
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-9-2">Section Item 9.2</a></li>				    
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-9-3">Section Item 9.3</a></li>			    
+              </ul>		    
+              </nav><!--//docs-nav-->	    
+            </div><!--//docs-sidebar-->	    
+            <div class="docs-content">		    
+               <div class="container">			    
+               <!-- ##################################  -->
+               <!-- # beginning of the documentation #  -->
+               <!-- ##################################  -->
+                  <article class="docs-article" id="section-1">			    
+                     <header class="docs-header">					    
+                         <h1 class="docs-heading">Introduction </h1>                                             
+                         <!--<span class="docs-time">Last updated: 3 days ago</span> -->
+		<section class="docs-intro">
+		  <h3> Congratualation on your HDA acquisition ! <br /></h3> 
+		  <p> You will find detailed components of <b>H D A </b><br>
+		  <i>The online soruce is in github - <a href="https://github.com/hyperscaleios/hsio" target="_blank">
+				  login as hyperscaleios</a> </i>. <br>
+		  <i>To view the online doc go <a href="https://hsio.netlify.app/docs-page#section-1" target="_blank">here </i></a> <br>
+		      
+     		  <h5>Components of HDA full rack </h5>
+		  <p>A full rack consist of 1 Master node, 1 Secondary Master Node, and 8 worker Nodes</p>
+		  <p><b>Worker Node:</b> <br>
+                  &emsp;1 CPU <br>
+                  &emsp;16G Ram <br>
+                  &emsp;100 GB HDD <br>
+                  &emsp;2 x 1G ethernet <br>
+                  &emsp;1 x 10G infiniband  
+                  </p>
+		  <p><b>Master Node:</b> <br>
+                  &emsp;2 CPU <br>
+                  &emsp;32G Ram <br>
+                  &emsp;300 GB HDD <br>
+                  &emsp;1 x 10G infiniband  
+                  </p>
+		<p><b>Secondary Master Node:</b> <br>
+                &emsp;2 CPU <br>
+                &emsp;32G Ram <br>
+                &emsp;300 GB HDD <br>
+                &emsp;2 x 1G ethernet <br>
+                &emsp;1 x 10G infiniband  
+                </p>
+		<p><b>10gb switch:</b> <br>
+                &emsp; 1U Rack Mount  
+                &emsp; 24 10G  ports<br>
+                &emsp; 2 100G QSFP28 ports <br>
+                </p>
+                </section>
+		<section class="docs-section" id="item-1-1">
+						<h2 class="section-heading">HDA Cluster</h2>
+						<div class="col-12 col-md-4 mb-3">
+						       <a href="assets/images/HDA_rack.png"><img  
+                                                       src="assets/images/HDA_switch.png" alt="" title="Hyperscale Data Appliance"/></a> 
+
+						      <!-- <a href="assets/images/HDA_rack.png"><img class="figure-img img-fluid shadow rounded" 
+                                                       src="assets/images/HDA_rack.png" alt="" title="Hyperscale Data Appliance"/></a>  -->
+						</div><!--//col-->
+				    </section>
+
+				    <section class="docs-section" id="item-1-2">
+					<h2 class="section-heading">Master node</h2>
+					  <p>  
+                                              Serves as the central entry point and management hub. 
+                                              It provides a single SQL interface to users, allowing them to interact with the 
+                                              cluster as if it were a single, large PostgreSQL database, while the underlying 
+                                              user data is processed in parallel across multiple segment nodes.
+                                          </p>
+				    </section>
+
+				    <section class="docs-section" id="item-1-3">
+				        <h2 class="section-heading">Secondary Master node</h2>
+					  <p>
+                                              acts as a warm standby for the primary master instance to ensure high availability (HA). 
+                                              It provides a failover solution in case the primary master node becomes 
+                                              non-operational, allowing the cluster to continue operating without data loss. 
+                                          </p>
+                                    </section>
+
+				    <section class="docs-section" id="item-1-4">
+					<h2 class="section-heading">Worker nodes</h2>
+					  <p>
+                                            Responsible for storing user data and performing parallel processing 
+                                            of SQL queries dispatched by the coordinator node. 
+                                            They execute query plans independently on local data, 
+                                            handle data shuffles, and perform DML operations (inserts, updates, 
+                                            deletes) to maximize analytical performance. 
+                                          </p>
+				    </section><!--//section-->
+
+				    <section class="docs-section" id="item-1-5">
+					<h2 class="section-heading">Interconnect</h2>
+					  <p>
+                                            24 Ports 10G L3 Switch<br> 
+                                            The backbone of Greenplum's parallel processing. It 
+                                            handles the intense network traffic generated during data redistribution, 
+                                            (MOTION nodes) during query execution.
+                                          </p>
+				    </section><!--//section-->
+
+			    </article>
+
+			    <article class="docs-article" id="section-2">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Setup</h1>
+					    <section class="docs-intro">
+						    <p>The HDA comes preinstalled and preconfigured. We will go through the physical setup of the HDA cluster in your data center.</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-2-1">
+					<h2 class="section-heading">Power</h2>
+                                          <p>      
+                                            Idel: 600W <br> 
+                                            Load: 2000W </p>
+                                           </p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-2-2">
+						<h2 class="section-heading">Network </h2>
+						<p>10Gb interconnect throughout the cluster handled by 10Gb managed switch</p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-2-3">
+						<h2 class="section-heading">Starting up</h2>
+						<p>Power on: <br>
+                                                   Switch <br>
+                                                   Master nodes <br>
+                                                   worker nodes <br>
+                                                </p>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+
+
+			    <article class="docs-article" id="section-3">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">HDA Portal</h1>
+					    <section class="docs-intro">
+						    <p>  portal is written in <b>Flask 3.1.1 &nbsp; Werkzeug 3.1.3 </b> on <b>Python 3.12.10 </b>. see <a href="#kb1">Knowledge base </a> <br>
+                                    
+                                                  </p>					
+                                            </section><!--//docs-intro-->				   
+                                   </header>				     
+                                   <section class="docs-section" id="item-3-1">		
+                                       <h2 class="section-heading">Section Item 3.1</h2>					
+                                           <p>seciton item 3.1 paragraph.</p>					
+                                   </section><!--//section-->										
+                                   <section class="docs-section" id="item-3-2">						
+                                       <h2 class="section-heading">Section Item 3.2</h2>						
+                                           <p>section item-3-2 paragraph</p>					
+                                   </section><!--//section-->
+                                   <section class="docs-section" id="item-3-3">						
+                                      <h2 class="section-heading">Section Item 3.3</h2>						
+                                            <p>section item 3-3 paragraph </p>
+                                   </section><!--//section-->
+
+                           </article><!--//docs-article seciton-3 -->			    			    
+
+                           <article class="docs-article" id="section-4">
+		             <header class="docs-header">
+		                <h1 class="docs-heading">APIs</h1>
+			        <section class="docs-intro">
+				<p>APISs doc-intro paragraph.</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-4-1">
+						<h2 class="section-heading">Section Item 4.1</h2>
+						<p>section item 4.1 paragraph</p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-4-2">
+						<h2 class="section-heading">Section Item 4.2</h2>
+						<p>item-4-2 paragraph.</p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-4-3">
+						<h2 class="section-heading">Section Item 4.3</h2>
+						<p>  section Item 4.3 paragraph</p>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+
+			    <article class="docs-article" id="section-5">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Development</h1>
+					    <section class="docs-intro">
+						    <p> </p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-5-1">
+						<h2 class="section-heading">Git </h2>
+						<p>HSIO local git repo location<br>
+						hsio@penguin:/usr/local/git_repo/flaskapp/hda_portal$ <br>
+						apt-get install git <br>
+						git init <br>
+						git branch -m development <br>
+						git add <br>
+						git add . <br>
+						git branch -M main <br>
+						git commit -m "Initial commit" <br> <br>
+						git config --global hyperscaleios@gmail.com <br>
+						git config --global hypercale.io "hsio" <br>
+						git commit -m "Initial commit" <br>
+				git config --global hyperscaleios.gmail.com "hyperscaoeios <br>
+				git config --global hyperscaleios.gmail.com "hyperscaoeios@gmail.com" <br>
+						git config --global hyperscaleios.hsio "hsio" <br>
+						git commit -m "Initial commit" <br>
+						chown hsio:hsio git_repo <br>
+                                                 cd git_repo/
+						</p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-5-2">
+						<h2 id="kb10" class="section-heading">Functions and Stored Procedures</h2>
+						<p>
+			     The primary difference is that PostgreSQL functions cannot manage <br>
+			     transactions, whereas procedures can execute COMMIT and ROLLBACK commands.<br>
+			     Functions are built to compute and return values inside queries, while procedures<br>
+			     are designed to execute standalone batch operations and business workflows<br>
+			     If your main goal is to return query results into SELECT, a function is usually the better fit.<br><br>
+			     <b>Core Component Breakdown</b><br>
+			     <hr>
+			     <b>Feature</b> &emsp;&emsp;&emsp; &emsp; &emsp; &emsp; <b>PostgreSQL Function</b> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&nbsp;<b>PostgreSQL Procedure</b><br>
+			     Transaction Control &emsp;&nbsp;No (COMMIT/ROLLBACK forbidden) &emsp; Yes (Allows full transaction control)<br>
+			     Return Mechanism &emsp;&emsp;<b>Requires</b> a RETURNS clause &emsp;&emsp; &emsp;&emsp;&nbsp; No RETURNS clause <br>
+			     Invocation Syntax &emsp;&emsp;&nbsp;&nbsp;Called via SELECT or inside DML &emsp;&emsp;&nbsp;&nbsp; Called via the CALL statement<br>
+			     Query Embedding &emsp; &emsp;Can use in WHERE, JOIN, or SELECT &emsp; &nbsp;Cannot embed inside SQL queries<br>
+			     Output Method &emsp; &emsp;&emsp;&nbsp;&nbsp;Returns result sets or scalar values &emsp; Returns data only via INOUT parameters<br><br>
+			     <i>For ecom implementation, see section</i><a href="#kb9"> <b>ecom</b> -> <b>Functions and SP</b></a>
+
+						</p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-5-3">
+						<h2 class="section-heading">Integrate FLask with PostgresQL </h2>
+						<p>
+					  from flask import Flask, render_template, request, redirect, url_for <br>
+					  import psycopg2<br>
+
+					  app = Flask(__name__)<br>
+
+					  # Connect to the database<br>
+					  conn = psycopg2.connect(database="flask_db", user="postgres",<br>
+					  password="root", host="localhost", port="5432")<br>
+					  <br>
+					  # create a cursor<br>
+					  cur = conn.cursor()<br>
+					  <br>
+					  # if you already have any table or not id doesnt matter this<br>
+					  # will create a products table for you.<br>
+					  cur.execute(<br>
+					  '''CREATE TABLE IF NOT EXISTS products (id serial \<br>
+					  PRIMARY KEY, name varchar(100), price float);''')<br>
+					  <br>
+					  # commit the changes<br>
+					  conn.commit()<br>
+					  <br>
+					  # close the cursor and connection<br>
+					  cur.close()<br>
+					  conn.close()<br>
+					  <br>
+					  <br>
+					  @app.route('/')<br>
+					  def index():<br>
+					  &emsp;# Connect to the database<br>
+					  &emsp;conn = psycopg2.connect(database="flask_db",<br>
+					  &emsp;user="postgres",<br>
+					  &emsp;password="root",<br>
+					  &emsp;host="localhost", port="5432")<br>
+					  <br>
+					  &emsp;# create a cursor<br>
+					  &emsp;cur = conn.cursor()<br>
+					  <br>
+					  &emsp;# Select all products from the table<br>
+					  &emsp;cur.execute('''SELECT * FROM products''')<br>
+					  <br>
+					  &emsp;# Fetch the data<br>
+					  &emsp;data = cur.fetchall()<br>
+					  <br>
+					  &emsp;# close the cursor and connection<br>
+					  &emsp;cur.close()<br>
+					  &emsp;conn.close()<br>
+					  <br>
+					  &emsp;return render_template('index.html', data=data)<br>
+					  <br>
+					  <br>
+					  @app.route('/create', methods=['POST'])<br>
+					  def create():<br>
+					  &emsp;conn = psycopg2.connect(database="flask_db", user="postgres",<br>
+					  &emsp;password="root", host="localhost", port="5432")<br>
+					  <br>
+					  &emsp;cur = conn.cursor()<br><br>
+
+					  &emsp;# Get the data from the form<br>
+					  &emsp;name = request.form['name']<br>
+					  &emsp;price = request.form['price']<br>
+					  <br>
+					  &emsp;# Insert the data into the table<br>
+                                          
+					  &emsp;cur.execute( '''INSERT INTO products  (name, price) VALUES(%s,%s)''',<br>
+					  &emsp;, (name, price))<br> 
+					  &emsp;# commit the changes <br>
+					  &emsp;conn.commit()<br>
+
+					  &emsp&emsp;;# close the cursor and connection<br>
+					  &emsp;cur.close()<br>
+					  &emsp;conn.close()<br>
+					  <br>
+					  &emsp;return redirect(url_for('index'))<br>
+					  <br>
+					  @app.route('/update', methods=['POST'])<br>
+					  def update():<br>
+					  &emsp;conn = psycopg2.connect(database="flask_db",<br>
+					  &emsp;user="postgres",<br>
+					  &emsp;password="root",<br>
+					  &emsp;host="localhost", port="5432")<br>
+					  <br>
+					  &emsp;cur = conn.cursor()<br>
+					  &emsp;name = request.form['name']<br>
+					  &emsp;price = request.form['price']<br>
+					  &emsp;id = request.form['id']<br>
+					  <br>
+					  &emsp;cur.execute(<br>
+					  &emsp;'''UPDATE products SET name=%s,<br>
+					  &emsp;price=%s WHERE id=%s''',<br>
+					  &emsp;(name, price, id))<br>
+					  <br>
+					  &emsp;conn.commit()<br>
+					  <br>
+					  &emsp;cur.close()<br>
+					  &emsp;conn.close()<br>
+					  <br>
+					  &emsp;return redirect(url_for('index'))<br>
+					  <br>
+					  <br>
+					  @app.route('/delete', methods=['POST'])<br>
+					  def delete():<br>
+					  &emsp;conn = psycopg2.connect<br>
+					  &emsp;(database="flask_db", user="postgres", password="root", host="localhost", port="5432")<br>
+					  &emsp;cur = conn.cursor()<br>
+					  <br>
+					  &emsp;# Get the data from the form<br>
+					  &emsp;id = request.form['id']<br>
+					  <br>
+					  &emsp;# Delete the data from the table<br>
+					  &emsp;cur.execute('''DELETE FROM products WHERE id=%s''', (id,))<br>
+					  <br>
+					  &emsp;# commit the changes<br>
+					  &emsp;conn.commit()<br>
+					  <br>
+					  &emsp;# close the cursor and connection<br>
+					  &emsp;cur.close()<br>
+					  &emsp;conn.close()<br>
+					  <br>
+					  &emsp;return redirect(url_for('index'))<br>
+					  <br>
+					  <br>
+					  if __name__ == '__main__':<br>
+					  app.run(debug=True) <br>
+			https://www.geeksforgeeks.org/python/making-a-flask-app-using-a-postgresql-database/
+			</p>
+					</section><!--//section-->
+					<section class="docs-section" id="item-5-4">
+						<h2 class="section-heading">Antares </h2>
+						<p>
+						<b>Add PPA source</b><br>
+						root@hsiom:~# curl https://antares-sql.github.io/antares-ppa/key.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/antares.gpg <br>
+						root@hsiom:~# curl -s --compressed -o /etc/apt/sources.list.d/antares.list https://antares-sql.github.io/antares-ppa/list_file.list<br><br>
+						<b>Install Antares </b><br>
+					        root@hsiom:~# sudo apt update<br>
+						root@hsiom:~# sudo apt install antares<br>
+						<b>add the following to /root/.bashrc  </b><br>
+						export PATH="$PATH:/root/.local/bin"<br>
+						export DISPLAY=:0<br>
+						<b>fire up antares</b><br>
+						root@hsiom:~# antares --no-sandbox
+						</p>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+			    
+			    
+		        <article class="docs-article" id="section-6">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Utilities</h1>
+					    <section class="docs-intro">
+						    <p>
+				Ansible is an open-source IT automation engine that simplifies complex  workflows, <br>
+				configuration management, and application deployments. It allows you to automate <br>
+				repetitive tasks—like updating servers or provisioning cloud resources—using <br>
+				simple, human-readable scripts
+						    </p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-6-1">
+						<h2 class="section-heading">Ansible </h2>
+						<p> 
+						  root@penguin:/etc/apt/sources.list.d# apt install ansible <br>
+						  root@penguin:~/Downloads/ansible# cat <b>/etc/ansible/ansible.cfg</b><br>
+						  [defaults]<br>
+						  # Suppress general warning messages<br>
+						  deprecation_warnings = False<br>
+						  command_warnings = False<br>
+						  localhost_warning = False<br>
+						  <b>interpreter_python=auto_silent</b><br><br>
+						  root@penguin:~/Downloads/ansible# <b>cat /etc/ansible/hosts</b><br>
+						  &emsp;[hsio]<br>
+						  &emsp; 100.115.92.26<br><br>
+						  <b>Execution</b><br>
+						  root@penguin:~/Downloads/ansible# ansible hsio -a "uptime"<br>
+						  100.115.92.26 | CHANGED | rc=0 >><br>
+						  15:06:57 up 20:09,  3 users,  load average: 0.08, 0.02, 0.01<br>
+						  root@penguin:~/Downloads/ansible# <br><br>
+						  <b>Running the playbook</b> <br>
+						  Ansible comes with the ansible-playbook command to launch a playbook with.<br>
+						  Let's now run the plays we created:<br>
+						  root@penguin:~/Downloads/ansible# <b>cat nginx.yml</b><br>
+						  ---<br>
+						  - name: start web servers<br>
+						  hosts: localhost<br>
+						    become: true  # Runs tasks with sudo privileges<br>
+						    tasks:<br>
+						    <!--
+						    #<b> Install nginx</b> is commented out because we already have nginx<br>
+						    #- name: Install nginx<br>
+						      #  ansible.builtin.apt:<br>
+						      #    name: nginx<br>
+						      #    state: present<br>
+						      #    update_cache: true<br>
+						      <br>
+						    -->
+						      - name: Start nginx<br>
+						      ansible.builtin.service:<br>
+							name: nginx<br>
+							  state: started<br>
+							  enabled: true<br><br>
+							  root@penguin:~/Downloads/ansible# <b>ansible-playbook -i hosts.yaml nginx.yaml</b><br>
+							  PLAY [start web servers] *****************************************<br>
+							  TASK [Gathering Facts] *******************************************<br>
+							  ok: [localhost]<br>
+							  TASK [Start nginx] ***********************************************<br>
+							  ok: [localhost]<br>
+							  PLAY RECAP *******************************************************<br>
+							  localhost  : <b>ok=2</b> changed=0 unreachable=0 failed=0 skipped=0 rescued=0    ignored=0
+						</p>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-6-2">
+						<h2 class="section-heading">A I</h2>
+						<p>Artificial Intelligence (AI) help machines to perform tasks requiring human intelligence such as problem-solving, decision-making and image generation. Its key subsets include machine learning, deep learning, NLP, computer vision, robotics and generative AI.</p>
+					</section><!--//section-->
+					<section class="docs-section" id="item-6-3">
+							<h2 class="section-heading">Machine Learning </h2>
+							<p>Machine learning help developers to create algorithms and models that allow computers to learn and make predictions or decisions without explicit programming. There are three types of machine learning techniques:<br>
+							1. Supervised Learning	<br>
+							2. Unsupervised Learning <br>
+							3. Reinforcement Learning<br>
+							 </p>
+					        <h2 class="section-heading">Deep Learning </h2>
+						<p>
+						Deep learning is inspired by the human brain's structure where billions 
+						of neurons communicate through signals.<br><br>
+						<b>Introduction to Neural Networks</b><br>
+						Neural Networks are fundamentals of deep learning inspired by human <br>
+						  brain. It consists of layers of interconnected nodes called "neurons".<br> <br>
+
+						  <b>Components of Neural Networks</b>:<br>
+						  <b>Neurons</b><br>
+						  &emsp;&bull;&nbsp;Inputs: Data values coming into the unit.<br>
+						  &emsp;&bull;&nbsp; Weights: Values that multiply the inputs to show their importance. <br>
+						  &emsp;&bull;&nbsp;Bias: An extra value added to help the model fit the data.<br>
+						  &emsp;&bull;&nbsp;Summing junction: Adds up all the weighted inputs and the bias.<br>
+						  &emsp;&bull;&nbsp;Activation Functions: A math rule that decides the final output signal.<br>
+						  &emsp;&bull;&nbsp;Loss Functions<br>
+						  &emsp;&bull;&nbsp;Backpropagation<br>
+						  &emsp;&bull;&nbsp;Learning Rate<br><br>
+						  <b>Hyperparameters</b>:<br>
+						  &emsp;&bull;&nbsp; Epochs<br>
+						  &emsp;&bull;&nbsp; Batch Size<br>
+						  <br>
+						  <b>Deep Learning Architecture</b><br>
+						  Below are foundational structures in deep learning:<br>
+						  &emsp;&bull;&nbsp; Perceptron<br>
+						  &emsp;&bull;&nbsp; Single Layer Perceptron<br>
+						  &emsp;&bull;&nbsp; Multi-Layer Perceptron<br>
+						  &emsp;&bull;&nbsp; Artificial Neural Networks (ANNs)<br>
+						  &emsp;&bull;&nbsp; Feedforward Neural Networks (FNN)<br>
+						  &emsp;&bull;&nbsp; Convolutional Neural Networks (CNN)<br>
+						  &emsp;&bull;&nbsp; Recurrent Neural Networks (RNNs)<br>
+						  &emsp;&bull;&nbsp; Long Short-Term Memory (LSTM) networks<br>
+						  &emsp;&bull;&nbsp; Gated Recurrent Units Networks (GRU)<br>
+						  &emsp;&bull;&nbsp; Optimization Algorithm in Deep Learning<br>
+						  The most common Algorithm are:<br>
+						  &emsp;&bull;&nbsp; Gradient Descent<br>
+						  &emsp;&bull;&nbsp; Stochastic Gradient Descent (SGD)<br>
+						  &emsp;&bull;&nbsp; Mini-batch Gradient Descent<br>
+						  &emsp;&bull;&nbsp; Regularization<br>
+						  <b>(L)arge (L)anguage (M)odel</b><br>
+						  Machine Learning is used for a wide range of tasks such as classification, <br>
+						  regression, clustering, and forecasting, while <b>Large Language Models (LLMs)</b> <br>
+						  are a specialized branch focused specifically on understanding and generating human language.<br>
+						</p>
+					        <h2 class="section-heading">Installation to Debian 13(Trixie) </h2>
+						<p>
+						  root@hsiom:~# apt-get install python3-numpy<br>
+						  root@hsiom:~# apt-get install python3-panda<br>
+						  root@hsiom:~# apt-get install python3-pandas<br>
+						  root@hsiom:~# apt-get install matplotlib<br>
+						  root@hsiom:~# apt-get install python3-matplotlib<br>
+						  root@hsiom:~# apt-get install python3-seaborn<br>
+						  root@hsiom:~# apt-get install python3-scikit-learn<br>
+                                                  root@hsiom:~# apt install python3-sklearn python3-sklearn-lib
+						</p>
+					</section><!--//section-->
+					<section class="docs-section" id="item-6-4">
+						<h2> Python &nbsp;AI&nbsp; libraries</h2>
+						<p>
+						<b> set break-system-packages to true</b> so we can pip install <br>
+						without virtual environment<br>
+						root@hsiom:~# cat &nbsp;<b>.config/pip/pip.conf</b><br>
+						[global]<br>
+						break-system-packages = true<br>
+						AI libraries<br>
+						
+
+						</p>
+					</section><!--//section-->>
+			    </article><!--//docs-article-->
+			    
+			    
+			    
+			    
+			    <article class="docs-article" id="section-8">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Resources</h1>
+					    <section class="docs-intro">
+						    <p>This Section contains knowledge base.</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-8-1">
+						<h2 id="kb1" class="section-heading">Flask</h2>
+						<p>
+						<h4>flask online development <a href="https://cocalc.com/auth/sign-in">Flask Online</a></h4>
+                                                    ~$ pwd <br> 
+                                                    /home/user  <br>
+                                                    ~$ mkdir hda_portal <br>
+                                                    ~$ cd hda_portal  <br>
+                                                   ~/hda_portal$  pip3 list |grep -i flask <br>
+                                                   <b>Flask 3.1.1</b> <br>
+                                                   ~/microblog$   python3 --version <br>
+                                                    <b>Python 3.12.10</b> <br>
+                                                   ~/hda_portal$   mkdir template <br>
+                                                   ~/hda_portal$   mkdir static <br>
+                                                   ~/hda_portal$   cd app/ <br>
+                                                   ~/hda_portal$   vi __init__.py <br>
+                                                   ~/hda_portal$  vi routes.py <br>
+                                                   ~/hda_portal$ cd .. <br>
+                                                   ~/hda_portal$ vi microblob.py <br>
+                                                   ~/hda_portal$ export FLASK_APP=microblog.py <br>
+                                                   ~/hda_portal$ flask run <br>
+                                                    * Serving Flask app 'microblog.py' <br>
+                                                    * Debug mode: off <br>
+                                                    WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead. <br>
+                                                    * Running on http://127.0.0.1:5000 <br>
+                                                    Press CTRL+C to quit <br>
+                                                    127.0.0.1 - - [17/Mar/2026 01:09:17] "GET / HTTP/1.0" 200 - <br>
+                                                    ^Z <br>
+                                                    bg <br>
+                                                    ~$ w3m http://127.0.0.1:5000 <br>
+                                                    <b>Hello, World </b><br>
+						    Do you want to exit w3m? (y/n) <br><br><br>
+						    
+						    <h4>Flask development on chromebook</h4><br>
+
+						    root@hsiom:~# apt install python3-flask<br>
+						    root@hsiom:~# apt install python3-flask-sqlalchemy<br>
+						    root@hsiom:~# apt-get install python3-flaskext.wtf<br>
+						   root@hsiom:~# <b>mkdir -p flaskapp/hda_portal</b><br>
+						   root@hsiom:~# <b>cd flaskapp/hda_portal</b><br>
+						   root@hsiom:~/flaskapp/hda_portal# flask --app app run --host 100.115.92.26 --debug<br><br>
+						    
+						   <s> For HDA Portal, we are going to go with flask-admin <br>
+						   </s><a href= "https://github.com/pallets-eco/flask-admin"><img src="assets/images/flask-admin.png" alt="" title="flask admin"/></a> <br>
+
+						   <br>
+						    
+				     </section><!--//section-->
+				     <section class="docs-section" id="item-8-2">
+					<section class="docs-section" id="item-8-2-1">
+					     <h2 id="kb1" class="section-heading">Linux Debian</h2><br>
+						<p>
+						<h4> delete by inode number</h4> <br>
+						root@chromebook:~/flaskapp/venv# find . -inum 65266 -delete <br> <br>
+						root@chromebook:~/flaskapp/venv# ls <br>
+						app.py   bin  '--exclude=__pycache__'   hello.py   include   lib   lib64    <br>
+						__pycache__   pyvenv.cfg   routes.py   static   templates <br>
+						root@chromebook:~/flaskapp/venv# find . -inum 65266 -delete <br>
+						root@chromebook:~/flaskapp/venv# ls -i <br>
+						65091  app.py  65267 '--exclude=__pycache__'  61931  include  61936  lib64         <br>
+						61938  pyvenv.cfg  65074  static 61937  bin     64490  hello.py  61933  lib   <br>
+						64484  __pycache__  65099  routes.py   65073  templates <br>
+						root@chromebook:~/flaskapp/venv# find . -inum 65267 -delete <br>
+						root@chromebook:~/flaskapp/venv# ls <br>
+						app.py  bin  hello.py  include  lib  lib64  __pycache__  pyvenv.cfg  routes.py   <br>
+						static  templates <br><br>
+						<h4> ssh penguin </h4> 
+						make sure sshd is enabled and started <br>
+						ssh through ipv4 only by speficying -4 on the ssh command <br>
+						root@penguin:~# ssh -4 localhost -l hyperscaleios <br>
+						root@penguin:~# ssh -4 100.115.92.203 -l hyperscaleios<br>
+						/etc/ssh/sshd_config<br>
+						Port 22<br>
+						AddressFamily inet<br>
+						#ListenAddress ::<br>
+						ListenAddress 0.0.0.0<br>
+                                                </p>
+				       </section><!--//section 8-2-1 -->
+					<section class="docs-section" id="item-8-2-2">
+					  <h4> Create swap </h4> <br>
+					  <p>
+					   root@penguin:~#  rm /swapfile <br>
+					   root@penguin:~#  dd if=/dev/zero of=/swapfile bs=1G count=1 status=progress<br>
+					    root@penguin:~# ls -l /swapfile <br>
+					    root@penguin:~# chmod 600 /swapfile <br>
+					    root@penguin:~# mkswap /swapfile <br>
+                                            root@penguin:~# swapon /swapfile
+					  </p>
+				        </section><!--//section 8-2-2 -->
+					<section class="docs-section" id="item-8-2-3">
+					  <h4> Virtualization with QEMU, KVM, and Virt-Manager</h4> <br>
+					  <p>
+					  <b>Install QEMU and Virt-Manager:</b> <br>
+					 root@penguin:~# apt -y install qemu-system libvirt-daemon-system<br> libvirt-clients virt-manager bridge-utils.<br>
+			               <ul> 
+						  <li>root@penguin:~# adduser $USER libvirt
+					          <li> root@penguin:~# adduser $USER kvm
+						  <li>root@penguin:~# adduser hsio libvirt
+					          <li> root@penguin:~# adduser hsio  kvm
+						  <li> root@penguin:~# systemctl enable libvirtd
+						  <li> root@penguin:~# systemctl start libvirtd
+						  <li> root@penguin:~# systemctl status libvirtd
+					  </ul>
+					  <i>We do not use virtual-manager to start. We use command line syntax. see below </i><br>
+					  <i><b>start virtual manager</b></i> <br>
+					  root@hsiom:~# virt-manager<br><br>
+					  <img  src="assets/images/qemu_kvm.png" alt="" title="virtual machines"/></a><br> 
+					  <i><b>use command line to start </i></b><br>
+					  root@hsiom:~# virsh start debian13 <br>
+					  <i><b>use command line to stop </i></b><br>
+					  root@hsiom:~# virsh shutdown debian13 <br>
+					  <i><b>use command line to list VMs </i></b><br>
+				          root@hsiom:~# virsh list<br>
+					  Id   Name       State <br>
+					  --------------------------<br>
+					  4    debian13   running<br><br>
+					  <b>Run <i>ifconfig</i></b> command in virtual manager to get the ipaddress<br>
+					  <img  src="assets/images/ifconfig_hsio001.png" alt="" title="virtual machines"/></a><br> 
+                                          
+					  </p>
+				     </section><!--//section 8-2-->
+				    <section class="docs-section" id="item-8-2-4">
+					  <h4>fornodes  </h4> <br>
+					  <p>
+					  root@hsiom:~# apt install pdsh<br><br>
+					  Create a nodes file in /etc/ named myhosts.all <br>
+					  root@hsiom:~# cat <b>/etc/myhosts.all</b><br>
+					  hsiom<br><br>
+					  hsio001<br>
+					  Add the following to your home directory...<br>
+					  root@hsiom:~# cat .bashrc |grep WCOLL<br>
+					  export WCOLL=/etc/myhosts.all<br><br>
+					  root@hsiom:~# <b>fornodes uptime</b> <br>
+					  hsiom:  18:35:20 up 53 min, 13 users,  load average: 0.53, 0.78, 0.54 <br>
+					  hsio001:  18:35:22 up 49 min,  1 user,  load average: 0.48, 0.10, 0.03 <br>
+					  <br> 
+					  root@hsiom:~# <b>cat /usr/local/bin/fornodes </b> <br>
+					  #!/usr/bin/env python3<br>
+					  import sys<br>
+					  import argparse<br>
+					  import subprocess<br>
+					  <br>
+					  def main():<br>
+					  &emsp;parser = argparse.ArgumentParser()<br>
+					  &emsp;parser.add_argument("cmd", help='command to execute')<br>
+					  &emsp;args = parser.parse_args()<br>
+					  &emsp;if args.cmd:<br>
+					  &emsp;&emsp;excmd ="/usr/bin/pdsh " + args.cmd <br>
+					  &emsp;&emsp;result = subprocess.run( ["/usr/bin/pdsh", args.cmd], capture_output=True, text=True)<br>
+					  &emsp;&emsp;print("\n")<br>
+					  &emsp;&emsp;print(result.stdout)<br>
+					  <br>
+					  if __name__ == "__main__":<br>
+					  main() 
+					  </p>
+				     </section><!--//section 8-2-3-->
+				    <section class="docs-section" id="item-8-2-5">
+					  <h4>forcp </h4> <br>
+					  <p>
+					  --copy everyting from hsiom in /tmp/test3 directory &emsp;to &emsp;hsio001:/tmp/test3<br>
+					  --<i> forcp will create test3 directory if hsio001:/tmp/test3 does not exist</i><br><br>
+					  root@hsiom:~# forcp /tmp/test3 hsio001:/ <br>
+					  sending incremental file list <br>
+					  /tmp/test3/ <br>
+					  /tmp/test3/t1 <br>
+					  /tmp/test3/t2 <br>
+					  sent 217 bytes  received 63 bytes  560.00 bytes/sec <br>
+					  total size is 0  speedup is 0.00 <br>
+					  root@hsiom:~# <br>
+					  root@hsiom:~# ssh hsio001 'ls /tmp/test3' <br>
+					  t1 <br>
+					  t2 <br><br>
+					  --<i><b> copy fornodes from hsiom:/usr/local/bin/fornodes to hsio001:/usar/local/bin</i></b><br>
+					  root@hsiom:~# forcp /usr/local/bin/fornodes hsio001:/<br>
+					  rsync command is  /usr/bin/rsync -avz /usr/local/bin/fornodes hsio001:/<br>
+					  sending incremental file list<br>
+					  /usr/local/bin/<br>
+					  /usr/local/bin/fornodes<br>
+					  sent 657 bytes  received 45 bytes  468.00 bytes/sec<br>
+					  total size is 464  speedup is 0.66<br>
+					  <br>
+					  0<br>
+					  root@hsiom:~#<br>
+					  root@hsiom:~#<b>cat /usr/local/bin/forcp</b><br>
+					  #!/usr/bin/env python3<br>
+					  import sys<br>
+					  import argparse<br>
+					  import subprocess<br>
+					  import os<br>
+					  <br>
+					  def main():<br>
+					  &emsp; n = len(sys.argv)<br>
+					  &emsp; if n == 3:<br>
+					  &emsp;&emsp;  source=sys.argv[1]<br>
+					  &emsp;&emsp;  target=sys.argv[2]<br>
+					  &emsp;&emsp;  excmd ="/usr/bin/rsync -avz " + source +" " + target<br>
+					  &emsp;&emsp;  print("rsync command is ", excmd)<br>
+					  &emsp;&emsp;  result = subprocess.call( excmd, shell=True)<br>
+					  &emsp;&emsp;  print("\n")<br>
+					  &emsp;&emsp;  print(result)<br>
+					  &emsp; else:<br>
+					  &emsp;&emsp;  print( "forcp needs source and destination, you %s argument"%n)<br>
+					  &emsp;&emsp;  print("%s"%sys.argv)<br>
+					  <br>
+					  if __name__ == "__main__":<br>
+					  &emsp; main() <br>
+
+					  </p>
+				     </section><!--//section 8-2-4-->
+
+				     <section class="docs-section" id="item-8-3">
+						<h2 id="kb1" class="section-heading">Postgresql </h2>
+						<p>
+						We replace Greenplum with Postgresql
+						</p>
+					<section class="docs-section" id="item-8-3-1">
+						<h2 class="section-heading">Install Postgresql </h2>
+						<p> 
+						<!--  div class="boxed" -->
+                                                    <div >
+				            <s>	    <h4> postgreSQL 16 </h4> 
+					            root@hsiom:~# apt install -y postgresql-common ca-certificates<br>
+						    root@hsiom:~# /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh<br>
+						    root@hsiom:~# apt install postgresql-16<br>
+						    root@hsiom:~# apt install python3-psycopg2<br>
+						    root@penguin:~# <b>systemctl status postgresql</b><br>
+						    postgresql.service - PostgreSQL RDBMS<br>
+						    Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; preset: enabled)<br>
+						    Active: active (exited) since Sun 2026-05-24 19:51:19 PDT; 18min ago<br>
+						    Invocation: 0ccd2be84e4d4faab2343528600407c7<br>
+						    Main PID: 1537 (code=exited, status=0/SUCCESS)<br>
+						    Mem peak: 1.7M<br>
+						    CPU: 13ms<br>
+						    <br>
+						    May 24 19:51:19 penguin systemd[1]: Starting postgresql.service - PostgreSQL RDBMS...<br>
+						    May 24 19:51:19 penguin systemd[1]: Finished postgresql.service - PostgreSQL RDBMS.<br>
+						    root@penguin:~# su - postgres<br>
+						    postgres@penguin:~$ <b>psql</b><br>
+						    psql (16.14 (Debian 16.14-1.pgdg13+1))<br>
+						    Type "help" for help.<br>
+						    <br>
+					    </s>      
+						    <h4>Postgresql 18</h4>
+						    apt install -y curl ca-certificates<br>
+						    apt install -y postgresql-common<br>
+						    root@hsiom:~# curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc<br><br>
+						    <b>Create pgdg.sources repo </b><br>
+						    root@hsiom:/etc/apt/sources.list.d# <b>ls</b><br>
+						    cros.list  dbeaver.list  pgdg.sources<br>
+						    root@hsiom:/etc/apt/sources.list.d# <b>cat &nbsp; &nbsp; pgdg.sources</b><br>
+						    Types: deb deb-src<br>
+						    URIs: https://apt.postgresql.org/pub/repos/apt<br>
+						    Suites: trixie-pgdg<br>
+						    Architectures: amd64<br>
+						    Components: main<br>
+						    Signed-By: /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc<br>
+						    root@hsiom:~# apt update<br>
+						    <b> install PostgreSQL 18 </b><br>
+						    apt install -y postgresql-18<br>
+						    <br>
+						    <h4>Postgresql 18 and Citus</h4>
+						    <p>
+						    To install Citus with PostgreSQL 18 on  Debian, add the community repository and install the <br>
+						    specific package postgresql-18-citus-14.1.<br>
+						    <b>Installation Steps on Ubuntu / Debian</b><br>
+						    Add the Citus repository:<br>
+						    curl https://install.citusdata.com/community/deb.sh | sudo bash <br>
+						    Install PostgreSQL 18 and the Citus 14 extension:<br>
+						    sudo apt-get -y install postgresql-18-citus-14.1<br>
+						    Preload the extension: <br>
+						    sudo pg_conftool 18 main set shared_preload_libraries citus<br>
+						    Restart PostgreSQL:<br>
+						    sudo service postgresql restart <br>
+						    Enable the extension in your database:<br>
+						    sudo -i -u postgres psql -c "CREATE EXTENSION citus;"<br>
+						    You can find more package details and options directly on the <a herf="https://www.citusdata.com/download/" target="_blank">Citus 
+							    Download Page.</a>
+					            https://docs.citusdata.com/en/stable/get_started/tutorial_multi_tenant.html#multi-tenant-tutorial`<br>
+						    </p>
+
+						  <i><b>#ecom data definition  </b></i><br>
+						  <a href="assets/docs/ecom_from_prod.sql" target="_blank">ecom schema</a><br>
+						  <a href="assets/docs/ecom_default_data.sql" target="_blank">ecom default data</a><br><br>
+
+						  <i><b>#create users </b></i><br>
+					             sudo su - postgres <br>
+						     hsio@hsiom:~$ psql ecom<br>
+						     psql (18.6 (Debian 18.6-1.pgdg13+2))<br>
+						     Type "help" for help. <br> <br>
+						     postgres=# create user hsio with password 'changeme';<br>
+						     postgres=# GRANT ALL PRIVILEGES ON DATABASE ecom TO hsio;<br>
+						     postgres=# ALTER USER hsio WITH SUPERUSER;<br><br>
+						     postgres=# create user hyperscaleios with password 'changeme';<br>
+						     postgres=# GRANT ALL PRIVILEGES ON DATABASE ecom TO hyperscaleios;<br>
+						     postgres=# ALTER USER hyperscaleios WITH SUPERUSER;<br><br>
+						     postgres=# \du <br>
+						       List of roles <br>
+										     Role name   |                         Attributes                         | Member of <br>
+						       ---------------+------------------------------------------------------------+----------- <br>
+						        hsio          | Create DB                                                  | {} <br>
+						        hyperscaleios | Create DB                                                  | {} <br>
+						        postgres      | Superuser, Create role, Create DB, Replication, Bypass RLS | {} <br> 
+						     postgres=# alter user hsio createrole; <br>
+						     ALTER ROLE <br>
+						     postgres=# alter user hyperscaleios createrole; <br>
+						     ALTER ROLE <br>
+						     postgres=# alter user hsio with superuser; <br>
+						     ALTER ROLE <br>
+						     postgres=# alter user hyperscaleios with superuser; <br>
+						     ALTER ROLE <br>
+						<i> Test user hyperscaleios...</i><br>
+						 root@hsiom$ psql -h 127.0,0.1 -U hyperscaleios -w ecom <br><br>
+						 Password for user hyperscaleios: <br>
+						 psql (<b>psql (18.6 (Debian 18.6-1.pgdg13+2))</b><br>
+						 Type "help" for help.<br>
+						   ecom=# \du<br>
+						   List of roles<br>
+						   Role name   &emsp;&nbsp;&nbsp;&nbsp;| Attributes &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp;<br>
+						   -------------+-----------------------------------------------------------------<br>
+						   hsio  &emsp; &emsp; &emsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Superuser, Create role, Create DB                           <br>
+						   hyperscaleios &nbsp;| Superuser, Create role, Create DB                           <br>
+						   postgres &emsp;&emsp; &nbsp;&nbsp;| Superuser, Create role, Create DB, Replication, Bypass RLS <br>
+						 ecom=#<br>
+						</p>
+						<i><b>test user hsio login</b></i><br>
+						 root@hsiom:~# psql -h 127.0.0.1 -U hsio -w ecom<br>
+						 Password for user hsio:&emsp;&emsp;#it's <b>changeme</b><br>
+						 psql (<b>(18.6 (Debian 18.6-1.pgdg13+2))</b><br>
+						 Type "help" for help.<br>
+						 ecom-# \q<br>
+						 root@hsiom:~#<br>
+						<i><b>test user hyperscaleios login</b></i><br>
+						 root@hsiom:~# psql -h 127.0,0,1 -U hyperscaleios -w ecom<br>
+						 Password for user hyperscaleios:<br>
+						 psql (<b> (18.6 (Debian 18.6-1.pgdg13+2))</b><br>
+						 Type "help" for help.<br>
+						<br>
+						ecom=# \dl<br>
+						Large objects<br>
+						ID | Owner | Description<br>
+						----+-------+-------------<br>
+						(0 rows)<br>
+						<br>
+						ecom=# \l  &emsp;--list databases, the other databases are left out of the following output<br>            
+						<table border="1">
+                                               <!-- Row 1: Often used for Headers -->
+                                               <tr>
+                                                 <th>Name</th><th>Owner</th><th>Encoding</th><th>Collate</th>
+                                                 <th>Ctype</th><th>ICU Locale</th><th>Locale provider</th><th>Access privilleges</th>
+                                               </tr>
+                                               <!-- Row 2 -->
+                                               <tr>
+                                                 <td>Ecom</td><td>Postgres&nbsp;</td><td>UTF-8</td><td>en_US.UTF-8</td>
+                                                 <td>en_US.UTF-8</td><td></td><td>libc</td><td>=Tc/postgres</td>
+                                               </tr>
+                                               <!-- Row 3 -->
+                                               <tr>
+                                               <td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td>
+                                               <td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>postgres=CTc/postgres</td>
+                                              </tr>
+                                              <!-- Row 4 -->
+                                             <tr>
+                                              <td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td>
+                                              <td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>hsio=CTc/postgres</td>
+                                             </tr>
+                                              <!-- Row 5 -->
+                                             <tr>
+                                             <td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td>
+                                             <td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>hyperscaleios=CTc/postgres</td>
+                                             </tr>
+                                             </table>
+				     </section><!--//section 8-3-1-->
+				     <section class="docs-section" id="item-8-3-2">
+						<h2 id="kb1" class="section-heading">Networking </h2>
+						<p>
+						<i>Preconfigured pg_hba </i><br>
+						add &emsp; # IPv4 <b>any</b> IP connections: &emsp; to &emsp; /etc/postgresql/18/main/pg_hba.conf<br>
+						host  &emsp; &emsp;all &emsp;&emsp; all &emsp;&emsp;0.0.0.0/0 &emsp;&emsp;md5<br><br>
+						<b>Modify</b> /etc/postgresql/18/main/postgresql.conf to listen on <b>all</b> addresses...<br>
+					       listen_address = '*'<br>
+
+						</p>
+				     </section><!--//section-->
+				     <section class="docs-section" id="item-8-3-3">
+						<h2 id="kb1" class="section-heading">PostgreSQL Administration </h2>
+						<p>
+						<i>Install pgadmin with dpkg command</i><br>
+						dpkg -i /mnt/chromeos/MyFiles/Downloads/pgadmin4-desktop_9.14-1.bookworm_amd64.deb <br>
+						<img class="logo-icon me-2" src="assets/images/pgadmin4.jpeg" width="40" height="30" alt="pgadmin4"> <b>pgadmin4</b> <br>
+						<img class="logo-icon me-2" src="assets/images/pgadmin.png" width="900" height="500" alt="ECOM">
+						</p>
+				     </section><!--//section-->
+				     <section class="docs-section" id="item-8-3-4">
+						<h2 id="kb1" class="section-heading">PostgreSQL Clustering with Citus</h2>
+						<p>
+						<i>Install postgreSQL 18 and Citus extension</i><br>
+						root@hsiom:~# curl https://install.citusdata.com/community/deb.sh | sudo bash<br>
+						root@hsiom:~# sudo apt-get -y install postgresql-18-citus-14.1<br>
+						root@hsiom:~# su - postgres<br>
+						postgres@hsiom:~$ mkdir citus<br>
+						postgres@hsiom:~$ <b>export PATH=$PATH:/usr/lib/postgresql/18/bin</b><br>
+						postgres@hsiom:~$ mkdir citus<br>
+						postgres@hsiom:~$ cd citus/<br>
+						postgres@hsiom:~/citus$ ls<br>
+						postgres@hsiom:~/citus$ cd ..<br>
+						postgres@hsiom:~$ <b>initdb -D citus</b><br>
+						The files belonging to this database system will be owned by user "postgres".<br>
+						This user must also own the server process.<br>
+						<br>
+						The database cluster will be initialized with locale "C".<br>
+						The default database encoding has accordingly been set to "SQL_ASCII".<br>
+						The default text search configuration will be set to "english".<br>
+						<br>
+						Data page checksums are enabled.<br>
+						<br>
+						fixing permissions on existing directory citus ... ok<br>
+						creating subdirectories ... ok<br>
+						selecting dynamic shared memory implementation ... posix<br>
+						selecting default "max_connections" ... 100<br>
+						selecting default "shared_buffers" ... 128MB<br>
+						selecting default time zone ... America/Los_Angeles<br>
+						creating configuration files ... ok<br>
+						running bootstrap script ... ok<br>
+						performing post-bootstrap initialization ... ok<br>
+						syncing data to disk ... ok<br>
+						<br>
+						initdb: warning: enabling "trust" authentication for local connections<br>
+						initdb: hint: You can change this by editing pg_hba.conf or using the option <br>
+						-A, or --auth-local and --auth-host, the next time you run initdb.<br>
+						<br>
+						Success. You can now start the database server using:<br>
+						<br>
+						postgres@hsiom:~$ echo "shared_preload_libraries = 'citus'" >> citus/postgresql.conf<br>
+						postgres@hsiom:~$ which pg_ctl<br>
+						/usr/lib/postgresql/18/bin/pg_ctl<br>
+						postgres@hsiom:~$ <b>pg_ctl -D citus -o "-p 9700" -l citus_logfile start</b><br>
+						waiting for server to start.... done<br>
+						server started<br>
+						postgres@hsiom:~$ psql -p 9700 -c "CREATE EXTENSION citus;"<br>
+						CREATE EXTENSION<br>
+						postgres@hsiom:~$ psql -p 9700 -c "select citus_version();"<br>
+						citus_version<br>
+						----------------------------------------------<br>
+						Citus 14.1.0 on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) <br>
+						(1 row)<br>
+						postgres@hsiom:~$ psql -p 9700 -c "select version();"<br>
+						version<br>
+						----------------------------------------------<br>
+						PostgreSQL 18.4 (Debian 18.4-1.pgdg13+1) compiled by gcc (Debian 14.2.0-19) <br>  <br>
+						To stop PostgreSQL 18  <br>
+						postgres@hdm01:~$ <b>pg_ctl stop -D citus -m fast</b><br>
+						</p>
+				     </section><!--//section-->
+				     <section class="docs-section" id="item-8-3-5">
+						<h2 id="kb1" class="section-heading">PostgreSQL 18</h2>
+						<p>
+						hsiom(hypescale io master) have  PostgreSQL 18 running<br> 
+						<s>	<b>PSQL 16 </b> <br>
+						start with systemctl<br>
+						pg_hba.conf is in /etc/postgresql/16/main/pg_hba.conf<br>
+						hsio@hsiom:~$ /usr/lib/postgresql/16/bin/psql ecom<br>
+						psql (16.14 (Debian 16.14-1.pgdg13+1))<br>
+						Type "help" for help.<br>
+						ecom=# \q<br> </s>
+						<b>PSQL 18 </b> <br>
+						hsio@hsiom:~$ /usr/lib/postgresql/18/bin/psql ecom<br>
+						psql (18.4 (Debian 18.4-1.pgdg13+1), server 16.14 (Debian 16.14-1.pgdg13+1))<br>
+						Type "help" for help.<br>
+						<br>
+						ecom=# \q<br>
+						</p>
+				     <section class="docs-section" id="item-8-4-1">
+						<h2 id="kb1" class="section-heading">Entity Relationship Diagram</h2>
+                                                  <img class="logo-icon me-2" src="assets/images/HSIO_ECOM.drawio.png" width="900" height="1000" alt="ECOM">
+
+				     </section><!--//section-->
+				     <section class="docs-section" id="item-8-4-2">
+						<h2 id="kb9" class="section-heading">Stored Procedures and Functions</h2>
+						<i>For concept, see section</i>&nbsp;<a href="#kb10"><i>Functions and Stored Procedures</i></a>
+						<p>
+						<b>Quick note about dropping funcitons...</b><br>
+						I ran into a problem where I had two functions with the same fname but diffrent parameters..<br>
+						I had to use the following select to creat dorp funciton statement which makes it a breez <br>
+						<i>SELECT 'DROP FUNCTION ' || oid::regprocedure || ';'<br>
+						FROM pg_proc<br>
+						WHERE proname = 'get_active_users'</i><br><br>
+						Now back to CREATE . . .<br>
+						CREATE <b>PROCEDURE insert_customer</b>(<br>
+						&emsp;custtype INTEGER,<br>
+						&emsp;custname TEXT<br>
+						) <br>
+						LANGUAGE plpgsql<br>
+						AS $$<br>
+						BEGIN<br>
+						&emsp;INSERT INTO customer(cust_type, cust_name)<br>
+						&emsp;VALUES (custType, custName);<br>
+						END;<br>
+						$$<br>
+						<b>Execution</b><br>
+						<i>--insert customer name = Hyperscale IO with cust_type of 4</i><br>
+						CALL public.insert_customer(4, 'Hyperscale IO') <br>
+						<br>
+						CREATE or REPLACE <b>FUNCTION delete_customer</b>"(<br>
+						&emsp; p_custId INT<br>
+						) <br>
+						<b>RETURN VOID AS </b>$$<br>
+						<b>BEGIN</b><br>
+						&emsp;update customer set deleted=true where cust_id=p_custId;<br>
+						<b>END;</b><br>
+						$$ <b>LANGUAGE</b> plpgsql;<br><br>
+						CREATE OR REPLACE <b>PROCEDURE insert_contact</b>(<br>
+						IN p_cust_id INT, IN p_fname TEXT, IN p_lname TEXT, IN p_phone TEXT, IN p_email TEXT, IN custId INTEGER)<br> 
+						LANGUAGE plpgsql<br>
+						AS<br>
+						$$<br>
+						<br>
+						BEGIN<br>
+						INSERT INTO contact (cust_idfname, lname,phone,email)<br>
+						VALUES (p_cust_id,p_fname, p_lname,p_phone,p_email);<br>
+						<br>
+						END;<br>
+						$$<br>
+						<br>
+						CALL "public"."insert_contact"('Brady','Chang','512-528-3829','bradycychang@gmail.com',104);<br>
+						<br>
+						CREATE <b>PROCEDURE delete_contact</b>"(IN contactid INTEGER) LANGUAGE plpgsql<br>
+						AS<br>
+						$$<br>
+						BEGIN<br>
+						&emsp;update contact set deleted=True where contact_id = contactId;<br>
+						&emsp;COMMIT;<br>
+						END;<br>
+						$$<br><br>
+						CREATE OR REPLACE PROCEDURE public.<b>update_contact</b>(<br>
+						IN contactid integer,<br>
+						IN firstname text,<br>
+						IN lastname text,<br>
+						IN phonenumber text,<br>
+						IN jobtitle text)<br>
+						LANGUAGE 'plpgsql'<br>
+						AS $BODY$<br>
+						BEGIN<br>
+					        &emsp;update contact set (fname, lname, phone, title) =<br>
+						&emsp;(firstName,lastName, phoneNumber,jobTitle) <br>
+						&emsp;where contact_id = contactId;<br>
+						END;<br>
+						&emsp;$BODY$;<br><br>
+						ALTER PROCEDURE public.update_contact(integer, text, text, text, text)<br>
+						OWNER TO hsio;<br><br>
+						<b>Execution</b><br>
+						CALL public.update_contact(102, 'Brady','Chang','512-528-3829', 'Platform Engineer'
+						);<br><br>
+						select * from contact where contact_id = 102;
+						<table>
+						<tr>
+							<th>contact_id</th>	
+							<th>fname</th>	
+							<th>lname</th>	
+							<th>phone</th>	
+							<th>email</th>	
+							<th>ontact_date</th>	
+							<th>cust_id</th>	
+							<th>is_deleted</th>	
+							<th>title</th>	
+                                                  </tr>
+						  <tr>
+							 <td>102</td>	
+							 <td>Brady</td>
+							 <td>Chang</td>	
+							 <td>512-528-3829</td>
+							 <td>bradycychang@gmail.com</td>
+							 <td>2026-08-28 22:20:50.872822</td>	
+							 <td>104</td>	
+							 <td>false</td>	
+							 <td>Platform Engineer</td>
+						  </tr>
+						</table><br>
+
+						CREATE OR REPLACE PROCEDURE public.<b>insert_product</b>(<br>
+						&emsp;IN productName text,<br>
+						&emsp;IN productDesc text,<br>
+						&emsp;IN productPrice numeric,<br>
+						&emsp;IN productMessage text)<br>
+						LANGUAGE 'plpgsql'<br>
+						AS $BODY$<br>
+						BEGIN<br>
+						&emsp;INSERT INTO product(product_name, proudct_desc, product_price,<br>
+						&emsp;product_msg)<br>
+						&emsp;VALUES (produtName, productDesc, productPrice, productMessage);<br>
+						&emsp;COMMIT;<br>
+						END;<br><br>
+						CREATE PROCEDURE "public"."<b>delete_product</b>"(IN productid INTEGER) <br>
+						LANGUAGE plpgsql<br>
+						AS<br>
+						$$<br>
+						BEGIN<br>
+						&emsp;update product set deleted=True where product_id = productId;<br>
+						&emsp;COMMIT;<br>
+						END;<br>
+						$$<br>
+						<br>
+						SELECT 'DROP FUNCTION ' || oid::regprocedure || ';' <br>
+						FROM pg_proc<br>
+						WHERE proname = 'get_active_users'<br>
+						drop function public.get_customer_by_name;<br>
+						CREATE FUNCTION "public"."<b>get_customer_by_name</b>"( custname varchar)<br>
+						RETURNS SETOF RECORD AS $$<br>
+						BEGIN<br>
+						custName = custName || '%';<br>
+						RETURN QUERY<br>
+						select customer.cust_id,<br>
+						case cust_type<br>
+						when 4 then 'internal'<br>
+						else 'unknown'<br>
+						END AS custtype2,<br>
+						customer.cust_name,customer.cust_date,<br>
+						co.fname, co.lname, co.phone, co.email, co.deleted<br>
+						from customer left join cust_attr using (cust_id), contact co<br>
+						where customer.cust_id = co.cust_id and lower(customer.cust_name) like lower(custName) and co.deleted = false;<br>
+						END;<br>
+						$$ LANGUAGE plpgsql;<br>
+						<br>
+						<b>Execution</b><br>
+						&emsp;select * from <b>get_customer_by_name</b>('<b>hyperscale</b>') as (cust_id int,  custype2 text,<br>
+						&emsp;cust_name varchar(40),cust_date timestamp,fname varchar(20), lname varchar(20) , phone varchar(20), <br>
+						&emsp;email varchar(30), is_deleted boolean)<br>
+						<b>Result</b><br>
+						&emsp;101 &emsp;internal &emsp;Hyperscale IO&emsp;2026-06-20 22:00:22.113694&emsp;Casper&nbsp;Chang&emsp;512-788-3188<br>&emsp;casperchang@zohomail.com &emsp;false<br>
+						&emsp;101 &emsp;internal &emsp;Hyperscale IO &emsp;	2026-06-20 22:00:22.113694 &emsp;Brady &nbsp;Chang &emsp;512-881-1089 <br>&emsp;bradychang@zohomail.com &emsp;fuck<br>
+						<br>
+			                CREATE FUNCTION "public"."get_customer_by_custid"(IN custid INTEGER,<br> 
+					TABLE cust_id INTEGER, TABLE cust_type INTEGER, TABLE cust_name VARCHAR,<br>
+					TABLE cust_date TIMESTAMP, TABLE fname VARCHAR, TABLE lname VARCHAR, <br>
+					TABLE phone VARCHAR, TABLE email VARCHAR, TABLE deleted BOOLEAN)<br>
+					RETURNS RECORD LANGUAGE sql <br>
+					AS<br>
+					$$<br><br>  
+					select customer.cust_id, customer.cust_type, customer.cust_name,<br>
+					customer.cust_date, co.fname, co.lname, co.phone, co.email, co.deleted<br>
+					from customer left join cust_attr using (cust_id), contact co<br>
+					where customer.cust_id = co.cust_id and co.deleted = false<br>
+					and customer.cust_id = custId ;<br>
+					$$<br> 
+				       <b>Execution</b><br>
+				       select * from <b>get_customer_by_custid</b>(<b>101</b>)<br>
+				       as (cust_id int, cust_type text, cust_name varchar(40),<br>
+				       cust_date timestamp, fname varchar(20),lname varchar(20),<br>
+                                       phone varchar(20), email varchar(30), deleted boolean);<br>
+						<b>Result</b><br>
+						<b>	cust_id &emsp;cust_type &emsp;cust_name &emsp; cust_date &emsp;fname &emsp; lname &&emsp; phone</b><br>
+						101 &emsp;&emsp;&emsp;internal	&emsp;&emsp;   Hyperscale IO &emsp;2026-06-20 	Casper	&emsp; Chang &emsp;512-788-3188<br>	
+						<b>email &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp; deleted</b><br>
+						casperchang@zohomail.com &emsp;&emsp;&emsp;false</b><br>
+					<br>
+					CREATE OR REPLACE FUNCTION <b>get_customer_by_contact</b>(<br>
+					&emsp;contactFname character varying,<br>
+				        &emsp;contactLname character varying)<br>
+					&emsp;RETURNS SETOF record<br>
+					&emsp;LANGUAGE 'plpgsql'<br>
+					&emsp;COST 100<br>
+					&emsp;VOLATILE PARALLEL UNSAFE<br>
+					&emsp;ROWS 1000<br>
+					<br>
+					AS $BODY$<br>
+					BEGIN<br>
+					&emsp;contactFname = contactFname || '%';<br>
+					&emsp;contactLname = contactLname || '%';<br>
+					<br>
+					RETURN QUERY<br>
+					&emsp;select customer.cust_id,<br>
+					&emsp;case cust_type<br>
+					&emsp;when 4 then 'internal'<br>
+					&emsp;else 'unknown'<br>
+					&emsp;END AS custtype2,<br>
+					&emsp;customer.cust_name,customer.cust_date,<br>
+					&emsp;co.fname, co.lname, co.phone, co.email, co.is_deleted<br>
+					&emsp;from customer left join cust_attr using (cust_id), contact co<br>
+					&emsp;where lower(co.fname) like lower(contactFname) and lower(co.lname) like lower(contactLname)<br>
+					&emsp;and co.is_deleted = false;<br>
+					END;<br>
+					$BODY$;<br>
+					ALTER FUNCTION public.get_customer_by_contact(character varying,character varying)<br>
+					OWNER TO hsio;<br>
+				       <b>Execution</b><br>
+				       &emsp;select * from <b>get_customer_by_contact</b>('<b>brady</b>','<b>chang</b>') as (cust_id int,  custype2 text,<br>
+				       &emsp;cust_name varchar(40),cust_date timestamp,fname varchar(20), lname varchar(20) , phone varchar(20), <br>
+				       &emsp;email varchar(30), is_deleted boolean)<br>
+				       <b>Result</b><br>
+				       &emsp;101 &emsp;internal &emsp;Hyperscale IO&emsp;2026-06-20 22:00:22.113694&emsp;Casper&nbsp;Chang&emsp;512-788-3188<br>&emsp;casperchang@zohomail.com &emsp;false<br>
+				       &emsp;101 &emsp;internal &emsp;Hyperscale IO &emsp;	2026-06-20 22:00:22.113694 &emsp;Brady &nbsp;Chang &emsp;512-881-1089 <br>&emsp;bradychang@zohomail.com &emsp;fuck<br>
+				      <br>
+
+				        CREATE FUNCTION "public"."<b>get_contact_by_name</b>"(IN lastname VARCHAR, <br>
+						IN firstname VARCHAR, IN custname VARCHAR) <br>
+						RETURNS RECORD LANGUAGE plpgsql<br>
+						AS<br>
+						$$<br>
+						BEGIN<br>
+						&emsp;custName = custName || '%';<br>
+						&emsp;firstName = firstName || '%';<br>
+						&emsp;lastName = lastName || '%';<br>
+						&emsp;RETURN QUERY<br>
+						&emsp;select customer.cust_id,<br>
+						&emsp;case cust_type<br>
+						&emsp;&emsp;when 1 then 'retail'<br>
+						&emsp;&emsp;when 2 then 'wholesale'<br>
+						&emsp;&emsp;when 4 then 'internal'<br>
+						&emsp;&emsp;else 'unknown'<br>
+						&emsp;END AS custtype2,<br>
+						&emsp;customer.cust_name,customer.cust_date,<br>
+						&emsp;co.fname, co.lname, co.phone, co.email<br>
+						&emsp;from customer left join cust_attr using (cust_id), contact co <br>
+						&emsp;where lower(co.fname) like lower(contactfname) and lower(co.lname) like lower(contactlname)<br>
+						&emsp;and lower(customer.cust_name) like lower(customername) and co.is_deleted = false;<br>
+						END;<br>
+						<b>Execution</b><br>
+						SELECT * from public.get_contact_by_name('brady','chang','hyper') AS<br>
+						(cust_id int, custype2 text,cust_name varchar(40),cust_date timestamp,<br>
+						fname varchar(20), lname varchar(20) , phone varchar(20), email varchar(30), is_deleted boolean)<br>
+						--------<br>
+						<b>R e s u l t</b><br>
+						--------<br>
+						<b>	cust_id &emsp;cust_type &emsp;cust_name &emsp; cust_date &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;fname &emsp; lname &emsp; phone</b><br>
+						104 &emsp;&emsp;&emsp;internal	&emsp;&emsp;   Hyperscale IO &emsp;2026-08-28 21:54:25.039353 	Brady	&emsp; Chang &emsp;512-528-3829<br>	
+						<b>email &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; is_deleted</b><br>
+						casperchang@zohomail.com &emsp;&emsp;	false<br>
+				      </p>
+				     </section><!--//section-->
+				     <section class="docs-section" id="item-8-4-3">
+						<h2 id="kb1" class="section-heading">ecom Data Access Objects</h2>
+						<p>
+                                                   class <b>Contact</b> <br>
+                                                    &emsp;  def __init__(self, contat_id, cust_id, fname, lname, email,crdate): <br>
+                                                      &emsp; &emsp; self.contact_id = contact_id <br>
+                                                      &emsp; &emsp; self.cust_id = cust_id <br>
+                                                      &emsp; &emsp; self.fname = fname <br>
+                                                      &emsp; &emsp; self.lname = lname <br>
+                                                      &emsp; &emsp; self.email = email <br>
+                                                      &emsp; &emsp; self.crdate = crdate <br><br>
+
+                                                    &emsp; def getContact_id(): <br>
+                                                    &emsp; &emsp; retrun self.contact_id <br>
+
+                                                    &emsp; def setContact_id(contact_id): <br>
+                                                    &emsp; &emsp; this.contact_id = contact_id <br><br>
+
+                                                    &emsp; def getCust_id(): <br>
+                                                    &emsp; &emsp; retrun self.cust_id <br>
+
+                                                    &emsp; def setCust_id(cust_id): <br>
+                                                    &emsp; &emsp; this.cust_id = cust_id <br><br>
+
+                                                    &emsp; def getFname(): <br>
+                                                    &emsp; &emsp; retrun self.fname <br>
+
+                                                    &emsp; def setFname(fname): <br>
+                                                    &emsp; &emsp; this.fname = fname <br><br>
+
+                                                    &emsp; def getlname(): <br>
+                                                    &emsp; &emsp; retrun self.lname <br>
+
+                                                    &emsp; def setLname(lname): <br>
+                                                    &emsp; &emsp; this.lname = lname <br><br>
+
+                                                    &emsp; def getEmail(): <br>
+                                                    &emsp; &emsp; retrun self.email <br>
+
+                                                    &emsp; def setEmail(email): <br>
+                                                    &emsp; &emsp; this.email = email <br><br>
+
+                                                    &emsp; def getCrdate(): <br>
+                                                    &emsp; &emsp; retrun self.crdate <br>
+
+                                                    &emsp; def setCrdate(crdate): <br>
+                                                    &emsp; &emsp; this.crdate = crdate <br><br>
+
+                                                </p>
+				     </section><!--//section-->
+			    </article><!--//docs-article-->
+			    
+			    
+			    <article class="docs-article" id="section-9">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">FAQs</h1>
+					    <section class="docs-intro">
+						    <p>Find answers to your questions here...</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-9-1">
+						<h2 class="section-heading">URL's </h2>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i><b>E</b>ntity <b>R</b>elationship <b>D</b>iagram site</h5>
+						<p>
+					        <a href="https://app.diagrams.net" target="_blank">app.diagram.net </a>	Online ERD Maker.diagrams.net <br>
+						<a href="https://drive.google.com/file/d/1AYNZm79S_pf6titrenFq28Tz0Vuf9lZ9/view?usp=sharing" target="_blank">ecom ERD </a> Hyperscaleios_google_drive<br>
+						</p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
+						<p>nonummy id, metus. Nullam accumsan lorem in dui. </p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
+						<p>. Nullam accumsan lorem in dui. </p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
+						<p>Aimperdiet eu viverra viverra, ultricies nec urna. </p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-9-2">
+						<h2 class="section-heading">Section Item 9.2 <small>(FAQ Category Two)</small></h2>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
+						<p> vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
+						<p>is sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
+						<p> id, metus. Nullam accumsan lorem in dui. </p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
+						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam tricies nec urna. </p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-9-3">
+							<h2 class="section-heading">Section Item 9.3 <small>(FAQ Category Three)</small></h2>
+						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to itudin justo vel fermentum?</h5>
+							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendcumsan lorem in dui. </p>
+							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Howlong bibendum sodales?</h5>
+							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelaccumsan lorem in dui. </p>
+							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Whee dapibus sollicitudin?</h5>
+							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molest ultricies nec urna. </p>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+
+			    <footer class="footer">
+				    <div class="container text-center py-5">
+			            <small class="copyright">Designed with 
+                                       <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> 
+                                       by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Brady Chang</a> for developers</small>
+				        <ul class="social-list list-unstyled pt-4 mb-0">
+					    <li class="list-inline-item"><a href="#"><i class="fa-brands fa-github fa-fw"></i></a></li> 
+				            <li class="list-inline-item"><a href="#"><i class="fa-brands fa-x-twitter fa-fw"></i></a></li>
+				            <li class="list-inline-item"><a href="#"><i class="fa-brands fa-slack fa-fw"></i></a></li>
+				            <li class="list-inline-item"><a href="#"><i class="fa-brands fa-product-hunt fa-fw"></i></a></li>
+				            <li class="list-inline-item"><a href="#"><i class="fa-brands fa-facebook-f fa-fw"></i></a></li>
+				            <li class="list-inline-item"><a href="#"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+				        </ul><!--//social-list-->
+				    </div>
+			    </footer>
+		    </div> 
+	    </div>
+    </div><!--//docs-wrapper-->
+
+
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+ </body>
+</html>
+</body>
+</html> 
